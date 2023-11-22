@@ -1,9 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "livres",
+  "collectionName": "books",
   "info": {
-    "singularName": "livre",
-    "pluralName": "livres",
+    "singularName": "book",
+    "pluralName": "books",
     "displayName": "Book",
     "description": ""
   },
@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Author": {
+    "Title": {
       "type": "string",
       "required": true
     },
-    "Title": {
+    "Author": {
       "type": "string",
       "required": true
     },
@@ -42,8 +42,7 @@
       ]
     },
     "Description": {
-      "type": "text",
-      "required": true
+      "type": "text"
     }
   }
 }

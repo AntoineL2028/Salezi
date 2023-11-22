@@ -677,6 +677,42 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiBookBook extends Schema.CollectionType {
+  collectionName: 'books';
+  info: {
+    singularName: 'book';
+    pluralName: 'books';
+    displayName: 'Book';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Author: Attribute.String & Attribute.Required;
+    Price: Attribute.Decimal &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    Stock: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    Image: Attribute.Media & Attribute.Required;
+    Description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCdCd extends Schema.CollectionType {
   collectionName: 'cds';
   info: {
@@ -756,50 +792,6 @@ export interface ApiElectronicElectronic extends Schema.CollectionType {
   };
 }
 
-export interface ApiLivreLivre extends Schema.CollectionType {
-  collectionName: 'livres';
-  info: {
-    singularName: 'livre';
-    pluralName: 'livres';
-    displayName: 'Book';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Author: Attribute.String & Attribute.Required;
-    Title: Attribute.String & Attribute.Required;
-    Price: Attribute.Decimal &
-      Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 0;
-      }>;
-    Stock: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 0;
-      }>;
-    Image: Attribute.Media & Attribute.Required;
-    Description: Attribute.Text & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::livre.livre',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::livre.livre',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -816,9 +808,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::book.book': ApiBookBook;
       'api::cd.cd': ApiCdCd;
       'api::electronic.electronic': ApiElectronicElectronic;
-      'api::livre.livre': ApiLivreLivre;
     }
   }
 }
