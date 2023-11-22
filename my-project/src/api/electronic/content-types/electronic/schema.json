@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "electronics",
+  "info": {
+    "singularName": "electronic",
+    "pluralName": "electronics",
+    "displayName": "Electronic",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Brand": {
+      "type": "string",
+      "required": true
+    },
+    "Model": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "Price": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "Stock": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    },
+    "Image": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
