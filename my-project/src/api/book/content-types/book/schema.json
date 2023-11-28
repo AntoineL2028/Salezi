@@ -33,7 +33,7 @@
     "Image": {
       "type": "media",
       "multiple": true,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
@@ -43,6 +43,15 @@
     },
     "Description": {
       "type": "text"
+    },
+    "CreatedBy": {
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "books"
     }
   }
 }

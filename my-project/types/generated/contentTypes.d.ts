@@ -362,6 +362,127 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiBookBook extends Schema.CollectionType {
+  collectionName: 'books';
+  info: {
+    singularName: 'book';
+    pluralName: 'books';
+    displayName: 'Book';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Author: Attribute.String & Attribute.Required;
+    Price: Attribute.Decimal &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    Stock: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    Image: Attribute.Media;
+    Description: Attribute.Text;
+    CreatedBy: Attribute.String;
+    user: Attribute.Relation<
+      'api::book.book',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCdCd extends Schema.CollectionType {
+  collectionName: 'cds';
+  info: {
+    singularName: 'cd';
+    pluralName: 'cds';
+    displayName: 'CD';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Artist: Attribute.String & Attribute.Required;
+    Title: Attribute.String & Attribute.Required;
+    Price: Attribute.Decimal &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    Stock: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    Image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::cd.cd', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::cd.cd', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiElectronicElectronic extends Schema.CollectionType {
+  collectionName: 'electronics';
+  info: {
+    singularName: 'electronic';
+    pluralName: 'electronics';
+    displayName: 'Electronic';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Brand: Attribute.String & Attribute.Required;
+    Model: Attribute.String & Attribute.Required;
+    Description: Attribute.Blocks & Attribute.Required;
+    Price: Attribute.Decimal &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    Stock: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    Image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::electronic.electronic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::electronic.electronic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -631,7 +752,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -660,6 +780,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    books: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::book.book'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -670,121 +795,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::users-permissions.user',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiBookBook extends Schema.CollectionType {
-  collectionName: 'books';
-  info: {
-    singularName: 'book';
-    pluralName: 'books';
-    displayName: 'Book';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Title: Attribute.String & Attribute.Required;
-    Author: Attribute.String & Attribute.Required;
-    Price: Attribute.Decimal &
-      Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 0;
-      }>;
-    Stock: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 0;
-      }>;
-    Image: Attribute.Media & Attribute.Required;
-    Description: Attribute.Text;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiCdCd extends Schema.CollectionType {
-  collectionName: 'cds';
-  info: {
-    singularName: 'cd';
-    pluralName: 'cds';
-    displayName: 'CD';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Artist: Attribute.String & Attribute.Required;
-    Title: Attribute.String & Attribute.Required;
-    Price: Attribute.Decimal &
-      Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 0;
-      }>;
-    Stock: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 0;
-      }>;
-    Image: Attribute.Media & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::cd.cd', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::cd.cd', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiElectronicElectronic extends Schema.CollectionType {
-  collectionName: 'electronics';
-  info: {
-    singularName: 'electronic';
-    pluralName: 'electronics';
-    displayName: 'Electronic';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Brand: Attribute.String & Attribute.Required;
-    Model: Attribute.String & Attribute.Required;
-    Description: Attribute.Blocks & Attribute.Required;
-    Price: Attribute.Decimal &
-      Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 0;
-      }>;
-    Stock: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 0;
-      }>;
-    Image: Attribute.Media & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::electronic.electronic',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::electronic.electronic',
       'oneToOne',
       'admin::user'
     > &
@@ -802,15 +812,15 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::book.book': ApiBookBook;
+      'api::cd.cd': ApiCdCd;
+      'api::electronic.electronic': ApiElectronicElectronic;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::book.book': ApiBookBook;
-      'api::cd.cd': ApiCdCd;
-      'api::electronic.electronic': ApiElectronicElectronic;
     }
   }
 }
