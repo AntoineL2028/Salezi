@@ -5,15 +5,14 @@
 - [Overview](#overview)
 - [Installation](#installation)
   - [Prerequisites](#prerequisites)
-  - [Installing Strapi](#installing-strapi)
-  - [Installing Dependencies](#installing-dependencies)
+  - [Installing Strapi & Dependencies](#installing-strapi--dependencies)
 - [Running the Project](#running-the-project)
   - [Start Without Auto-Reload](#start-without-auto-reload)
   - [Start with Auto-Reload](#start-with-auto-reload)
 - [Postman Collection](#postman-collection)
 - [Grafana](#install-grafana)
 
-## Overview
+## 📝 Overview
 
 The Cloudly Backend project is the backend application for Cloudly, a platform providing an API for managing stocks and sales of products for FNAC's sales partners. The project includes three different roles: Super Admin, FNAC Manager, and Seller, with role-based access control for enhanced security. The backend is built using Strapi with an SQLite database.
 
@@ -21,7 +20,7 @@ A category of items is referred to a "collection." Each collection comprises a s
 
 3 collections are already created in the system so that you can see an example of how the system works. These collections are: Books, CDs and Electronics.
 
-## Installation
+## 📦 Installation
 
 ### Prerequisites
 
