@@ -25,23 +25,15 @@ The Cloudly Backend project is the backend application for Cloudly, a platform p
 
 Before getting started, ensure you have the following installed on your system:
 
-- Node.js (version x.x.x)
+- Node.js
 - NPM (Node Package Manager)
 - Git
 
-### Installing Strapi
+### Installing Strapi & Dependencies
 
-To install Strapi globally, use the following command:
-
-### Installing Dependencies
-
-```bash
-npm install -g strapi
-```
 Navigate to the project directory and install the project dependencies:
 
 ```bash
-Copy code
 npm install
 ```
 ### Define Roles and Permissions
@@ -50,20 +42,18 @@ Super Admin Role: Grant all permissions.
 Fnac Manager Role: Allow access to relevant sections and actions.
 Seller Role: Allow access and actions only on their own products and transactions.
 
-### Running the Project
+## Running the Project
 
 ### Start Without Auto-Reload
 To run the project without auto-reload, use the following command:
 
 ```bash
-Copy code
 npm run start
 ```
 ### Start with Auto-Reload
 To run the project with auto-reload, use the following command:
 
 ```bash
-Copy code
 npm run develop
 ```
 ### Postman Collection
