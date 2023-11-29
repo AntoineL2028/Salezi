@@ -81,7 +81,7 @@ You are provided with a Grafana dashboard to help you visualize the data in the 
 
 Install and start [Grafana](https://grafana.com/docs/grafana/latest/installation/)
 
-Add the sqlite plugin to Grafana in the terminal do :
+Add the sqlite plugin to Grafana, in the terminal do :
 
 ```bash
 grafana cli plugins install frser-sqlite-datasource
