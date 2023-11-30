@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "abe61a66-1551-45a6-810d-cc5f9b9aa6e5",
+		"name": "Salezi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30682573"
+	},
+	"item": [
+		{
+			"name": "See All datas from a collection",
+			"item": [
+				{
+					"name": "All Books",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query Books {\n    books {\n        data {\n            id\n            attributes {\n                Title\n                Author\n                Price\n                Stock\n                Description\n                createdAt\n                updatedAt\n                publishedAt\n            }\n        }\n    }\n}\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://{{api_url}}",
+							"protocol": "http",
+							"host": [
+								"{{api_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All cds",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query Cds {\n    cds {\n        data {\n            id\n            attributes {\n                Artist\n                Title\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n            }\n        }\n    }\n}\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://{{api_url}}",
+							"protocol": "http",
+							"host": [
+								"{{api_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All electronics",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query Electronics {\n    electronics {\n        data {\n            id\n            attributes {\n                Brand\n                Model\n                Description\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n            }\n        }\n    }\n}\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://{{api_url}}",
+							"protocol": "http",
+							"host": [
+								"{{api_url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "See data for an id",
+			"item": [
+				{
+					"name": "Book_id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query Book {\n    book(id: \"1\") {\n        data {\n            id\n            attributes {\n                Title\n                Author\n                Price\n                Stock\n                Description\n                createdAt\n                updatedAt\n                publishedAt\n            }\n        }\n    }\n}\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://{{api_url}}",
+							"protocol": "http",
+							"host": [
+								"{{api_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CD_id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query Cd {\n    cd(id: \"2\") {\n        data {\n            id\n            attributes {\n                Artist\n                Title\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n            }\n        }\n    }\n}\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://{{api_url}}",
+							"protocol": "http",
+							"host": [
+								"{{api_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Electronic_id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query Electronic {\n    electronic(id: \"10\") {\n        data {\n            id\n            attributes {\n                Brand\n                Model\n                Description\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n            }\n        }\n    }\n}\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://{{api_url}}",
+							"protocol": "http",
+							"host": [
+								"{{api_url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "33801ecba8c030d00f60d0ffce9dd577010fccdaa761b698386e2f1c726a4f7e30a7f15a1496696bdb1d1cad2670d86616dc47048166f75e5ca92dd123fe3e24dacb08501c34c121cb530306028cbf5f31dd0f6e7e5ab2783c8db0aeff6a1a012891742502ead78d082459177f372bf086d8391f85ad2fcc15c80f1bf0dcaa10",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_url",
+			"value": "localhost:1337/graphql"
+		}
+	]
+}

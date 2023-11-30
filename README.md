@@ -73,7 +73,7 @@ yarn develop
 
 ### Postman Collection
 
-For testing and covering all relevant routes for sellers, import the provided Postman collection: Cloudly Backend Postman Collection.
+For testing and covering all relevant routes for sellers, import the provided Postman collection: ./postman-collection/Salezi.postman_collection.json
 
 ### Install Grafana
 
