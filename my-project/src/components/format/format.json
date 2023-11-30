@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_format_formats",
+  "info": {
+    "displayName": "Format",
+    "icon": "bold",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -394,6 +394,7 @@ export interface ApiBookBook extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.user'
     >;
+    Format: Attribute.Component<'format.format', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -429,6 +430,7 @@ export interface ApiCdCd extends Schema.CollectionType {
         min: 0;
       }>;
     Image: Attribute.Media;
+    Format: Attribute.Component<'format.format', true> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

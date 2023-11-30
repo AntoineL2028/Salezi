@@ -40,6 +40,12 @@
         "videos",
         "audios"
       ]
+    },
+    "Format": {
+      "type": "component",
+      "repeatable": true,
+      "component": "format.format",
+      "required": true
     }
   }
 }
