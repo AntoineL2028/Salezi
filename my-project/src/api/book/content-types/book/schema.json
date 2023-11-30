@@ -52,6 +52,12 @@
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "books"
+    },
+    "Format": {
+      "displayName": "Format",
+      "type": "component",
+      "repeatable": true,
+      "component": "format.format"
     }
   }
 }
