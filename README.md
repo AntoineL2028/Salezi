@@ -9,6 +9,7 @@
 - [Running the Project](#running-the-project)
   - [Start Without Auto-Reload](#start-without-auto-reload)
   - [Start with Auto-Reload](#start-with-auto-reload)
+- [API Documentation](#api-documentation)
 - [Postman Collection](#postman-collection)
 - [Grafana](#install-grafana)
 
@@ -70,6 +71,10 @@ or
 ```bash
 yarn develop
 ```
+
+### API Documentation
+
+Find the documentation of the API with the following link : http://localhost:1337/documentation/
 
 ### Postman Collection
 
