@@ -111,7 +111,7 @@
 							"mode": "graphql",
 							"graphql": {
 								"query": "query Cd ($id: ID) {\n    cd(id: $id) {\n        data {\n            id\n            attributes {\n                Artist\n                Title\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n                Format {\n                    id\n                    Name\n                }\n            }\n        }\n    }\n}\n",
-								"variables": "{\n    \"id\": 2\n}"
+								"variables": "{\n    \"id\": 3\n}"
 							}
 						},
 						"url": {
@@ -133,7 +133,220 @@
 							"mode": "graphql",
 							"graphql": {
 								"query": "query Electronic ($id: ID) {\n    electronic(id: $id) {\n        data {\n            id\n            attributes {\n                Brand\n                Model\n                Description\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n            }\n        }\n    }\n}\n",
-								"variables": "{\n    \"id\": 10\n}"
+								"variables": "{\n    \"id\": 5\n}"
+							}
+						},
+						"url": {
+							"raw": "http://{{api_url}}",
+							"protocol": "http",
+							"host": [
+								"{{api_url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create element",
+			"item": [
+				{
+					"name": "Create Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation CreateBook {\n    createBook(\n        data: {\n            Title: \"One piece\"\n            Author: \"Eiichiro Oda\"\n            Price: 6.99\n            Stock: 200\n            Description: \"Strawhat pirate\"\n            user: null\n            CreatedBy: null\n            Format: [\n                {\n                    Name: \"Physical\"\n                }\n            ]\n        }\n    ) {\n        data {\n            id\n            attributes {\n                Title\n                Author\n                Price\n                Stock\n                Description\n                CreatedBy\n                createdAt\n                updatedAt\n                publishedAt\n                Format {\n                    id\n                    Name\n                }\n            }\n        }\n    }\n}\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://{{api_url}}",
+							"protocol": "http",
+							"host": [
+								"{{api_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create CD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation CreateCd {\n    createCd(\n        data: {\n            Artist: \"Damso\"\n            Title: \"QALF Infinity\"\n            Price: 24.99\n            Stock: 45\n            Format: [\n                {\n                    Name: \"Vinyle\"\n                }\n            ]\n        }\n    ) {\n        data {\n            attributes {\n                Artist\n                Title\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n                Format {\n                    id\n                    Name\n                }\n            }\n            id\n        }\n    }\n}\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://{{api_url}}",
+							"protocol": "http",
+							"host": [
+								"{{api_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Electronic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation CreateElectronic {\n    createElectronic(\n        data: {\n            Brand: \"Apple\"\n            Model: \"Airpods Max\"\n            Description: [\n                {\n                        type: \"paragraph\",\n                            children: [\n                                {\n                                    type: \"text\",\n                                    text: \"Casque Apple avec reduction de bruit\"\n                                }\n                            ]\n                    },\n                    {\n                                type: \"paragraph\",\n                                children: [\n                                    {\n                                        type: \"text\",\n                                        text: \"Bluetooth et câble de charge USB-C\"\n                                    }\n                                ]\n                            },\n            ]\n            Price: 529.99\n            Stock: 40\n        }\n    ) {\n        data {\n            id\n            attributes {\n                Brand\n                Model\n                Description\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n            }\n        }\n    }\n}\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://{{api_url}}",
+							"protocol": "http",
+							"host": [
+								"{{api_url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Update Element",
+			"item": [
+				{
+					"name": "Update Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation UpdateBook ($id: ID!) {\n    updateBook(\n        id: $id\n        data: {\n            Title: \"Banksy's art\"\n            Author: \"Banksy\"\n            Price: 24.99\n            Stock: 20\n            Description: \"Banksy's history and art in a book\"\n            Format: [\n                {\n                    Name: \"Physical\"\n                }\n            ]\n        }\n    ) {\n        data {\n            id\n            attributes {\n                Title\n                Author\n                Price\n                Stock\n                Description\n                CreatedBy\n                createdAt\n                updatedAt\n                publishedAt\n                Format {\n                    id\n                    Name\n                }\n            }\n        }\n    }\n}\n",
+								"variables": "{\n    \"id\": 2\n}"
+							}
+						},
+						"url": {
+							"raw": "http://{{api_url}}",
+							"protocol": "http",
+							"host": [
+								"{{api_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update CD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation UpdateCd ($id: ID!) {\n    updateCd(\n        id: $id\n        data: {\n            Artist: \"Bigflo et Oli\"\n            Title: \"La vie la vraie\"\n            Price: 14.99\n            Stock: 35\n            Format: [\n                {\n                    Name: \"Vinyle\"\n                }\n            ]\n        }\n    ) {\n        data {\n            id\n            attributes {\n                Artist\n                Title\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n                Format {\n                    id\n                    Name\n                }\n            }\n        }\n    }\n}\n",
+								"variables": "{\n    \"id\": 3\n}"
+							}
+						},
+						"url": {
+							"raw": "http://{{api_url}}",
+							"protocol": "http",
+							"host": [
+								"{{api_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Electronic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation CreateElectronic ($id: ID!) {\n    updateElectronic(\n        id: $id\n        data: {\n            Brand: \"Apple\"\n            Model: \"Inoxtag\"\n            Description: [\n                {\n                        type: \"paragraph\",\n                            children: [\n                                {\n                                    type: \"text\",\n                                    text: \"Localisation par objet\"\n                                }\n                            ]\n                    },\n                    {\n                                type: \"paragraph\",\n                                children: [\n                                    {\n                                        type: \"text\",\n                                        text: \"Utilisable en : France\"\n                                    }\n                                ]\n                            },\n            ]\n            Price: 34.99\n            Stock: 1\n        }\n    ) {\n        data {\n            id\n            attributes {\n                Brand\n                Model\n                Description\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n            }\n        }\n    }\n}\n",
+								"variables": "{\n    \"id\": 5\n}"
+							}
+						},
+						"url": {
+							"raw": "http://{{api_url}}",
+							"protocol": "http",
+							"host": [
+								"{{api_url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete Element",
+			"item": [
+				{
+					"name": "Delete Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation DeleteBook ($id: ID!) {\n    deleteBook(id: $id) {\n        data {\n            id\n            attributes {\n                Title\n                Author\n                Price\n                Stock\n                Description\n                CreatedBy\n                createdAt\n                updatedAt\n                publishedAt\n                Format {\n                    id\n                    Name\n                }\n            }\n        }\n    }\n}\n",
+								"variables": "{\n    \"id\": 17\n}"
+							}
+						},
+						"url": {
+							"raw": "http://{{api_url}}",
+							"protocol": "http",
+							"host": [
+								"{{api_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete CD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation DeleteCd ($id: ID!){\n    deleteCd(id: $id) {\n        data {\n            id\n            attributes {\n                Artist\n                Title\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n            }\n        }\n    }\n}\n",
+								"variables": "{\n    \"id\": 19\n}"
+							}
+						},
+						"url": {
+							"raw": "http://{{api_url}}",
+							"protocol": "http",
+							"host": [
+								"{{api_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Electronic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation DeleteElectronic ($id: ID!) {\n    deleteElectronic(id: $id) {\n        data {\n            id\n            attributes {\n                Brand\n                Model\n                Description\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n            }\n        }\n    }\n}\n",
+								"variables": "{\n    \"id\": 14\n}"
 							}
 						},
 						"url": {
