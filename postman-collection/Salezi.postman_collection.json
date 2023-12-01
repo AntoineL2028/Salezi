@@ -17,7 +17,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "query Books {\n    books {\n        data {\n            id\n            attributes {\n                Title\n                Author\n                Price\n                Stock\n                Description\n                createdAt\n                updatedAt\n                publishedAt\n            }\n        }\n    }\n}\n",
+								"query": "query Books {\n    books {\n        data {\n            id\n            attributes {\n                Title\n                Author\n                Price\n                Stock\n                Description\n                CreatedBy\n                createdAt\n                updatedAt\n                publishedAt\n                Format {\n                    Name\n                    id\n                }\n            }\n        }\n    }\n}\n",
 								"variables": ""
 							}
 						},
@@ -39,7 +39,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "query Cds {\n    cds {\n        data {\n            id\n            attributes {\n                Artist\n                Title\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n            }\n        }\n    }\n}\n",
+								"query": "query Cds {\n    cds {\n        data {\n            id\n            attributes {\n                Artist\n                Title\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n                Format {\n                    id\n                    Name\n                }\n            }\n        }\n    }\n}\n",
 								"variables": ""
 							}
 						},
@@ -88,7 +88,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "query Book($id: ID) {\n    book(id: $id) {\n        data {\n            id\n            attributes {\n                Title\n                Author\n                Price\n                Stock\n                Description\n                createdAt\n                updatedAt\n                publishedAt\n            }\n        }\n    }\n}\n",
+								"query": "query Book($id: ID) {\n    book(id: $id) {\n        data {\n            id\n            attributes {\n                Title\n                Author\n                Price\n                Stock\n                Description\n                createdAt\n                updatedAt\n                publishedAt\n                Format {\n                    id\n                    Name\n                }\n            }\n        }\n    }\n}\n",
 								"variables": "{\n    \"id\": 2\n}"
 							}
 						},
@@ -110,7 +110,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "query Cd ($id: ID) {\n    cd(id: $id) {\n        data {\n            id\n            attributes {\n                Artist\n                Title\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n            }\n        }\n    }\n}\n",
+								"query": "query Cd ($id: ID) {\n    cd(id: $id) {\n        data {\n            id\n            attributes {\n                Artist\n                Title\n                Price\n                Stock\n                createdAt\n                updatedAt\n                publishedAt\n                Format {\n                    id\n                    Name\n                }\n            }\n        }\n    }\n}\n",
 								"variables": "{\n    \"id\": 2\n}"
 							}
 						},
